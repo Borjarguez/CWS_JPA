@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1d9cf224-e41b-46f5-9113-83763398f1ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/assertion/Argument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/assertion/Assert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/assertion/StateCheck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/console/Console.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/console/Printer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/console/ProgressBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/date/Dates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/exception/NotYetImplementedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/file/FileUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/jdbc/Jdbc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/AssociationSide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/Linker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/LinkerBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/Multiplicity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/SideHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/associationclass/AssociationClassBranch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/associationclass/AssociationClassLinker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/associationclass/IdToManyBranch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/associationclass/IdToOneBranch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/handler/ManySideHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/handler/NonNavigableSideHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/handler/OneSideHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/manytomany/ManyToManyLinker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/onetomany/OneToManyLinker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/linker/onetoone/OneToOneLinker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/log/Log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/log/LogLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/log/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/log/adapter/BaseLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/log/adapter/ConsoleLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/math/Round.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/menu/Action.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/menu/BaseMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/menu/NotYetImplementedAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/money/Money.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/properties/Settings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/random/Random.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/reflection/ReflectionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/src/alb/util/singleton/Singleton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/target/classes/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbUtil/test/alb/util/singleton/SingletonTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CWS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/1.startup.lck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/1.startup.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/1.startup.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/1.startup.script" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\borja\Documents\Repositorios_Informacion\CWS_JPA\CWS\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SnRatWSvxJNkKooBsS6yB7LiWR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1d9cf224-e41b-46f5-9113-83763398f1ed" name="Default Changelist" comment="" />
+      <created>1572197439884</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572197439884</updated>
+      <workItem from="1572197451443" duration="2000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
