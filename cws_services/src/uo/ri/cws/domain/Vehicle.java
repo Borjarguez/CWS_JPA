@@ -16,7 +16,7 @@ public class Vehicle extends BaseEntity {
 	@Column(unique = true)
 	private String plateNumber;
 	
-	@Column(name = "brand")
+//	@Column(name = "brand")
 	private String make;
 	
 	private String model;

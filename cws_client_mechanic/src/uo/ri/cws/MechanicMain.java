@@ -5,6 +5,8 @@ import uo.ri.cws.ui.MainMenu;
 
 public class MechanicMain {
 
+	private MainMenu menu = new MainMenu();
+
 	public static void main(String[] args) {
 		new MechanicMain()
 			.config()
@@ -18,7 +20,7 @@ public class MechanicMain {
 
 	public MechanicMain run() {
 		try {
-			new MainMenu().execute();
+			menu.execute();
 
 		} catch (RuntimeException rte) {
 			Printer.printRuntimeException(rte);

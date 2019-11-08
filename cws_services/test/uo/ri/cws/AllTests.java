@@ -9,6 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({
 	uo.ri.cws.associations.AllTests.class,
 	uo.ri.cws.domain.AllTests.class,
-	uo.ri.cws.persistence.PersistenceTest.class
+	uo.ri.cws.persistence.PersistenceTest.class,
+	uo.ri.cws.extended.AllTests.class
 })
 public class AllTests { }

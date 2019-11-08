@@ -9,9 +9,16 @@ import uo.ri.cws.application.service.invoice.create.CreateInvoiceServiceImpl;
 import uo.ri.cws.application.service.mechanic.MechanicCrudService;
 import uo.ri.cws.application.service.mechanic.crud.MechanicCrudServiceImpl;
 import uo.ri.cws.application.service.sparepart.SparePartCrudService;
+import uo.ri.cws.application.service.training.CertificateService;
+import uo.ri.cws.application.service.training.CourseAttendanceService;
+import uo.ri.cws.application.service.training.CourseCrudService;
+import uo.ri.cws.application.service.training.CourseReportService;
+import uo.ri.cws.application.service.training.crud.certificate.CertificateServiceImpl;
+import uo.ri.cws.application.service.training.crud.courseAttendance.CourseAttendanceServiceImpl;
 import uo.ri.cws.application.service.vehicle.VehicleCrudService;
 import uo.ri.cws.application.service.vehicle.crud.VehicleCrudServiceImpl;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeCrudService;
+import uo.ri.cws.application.service.workorder.AssignWorkOrderService;
 import uo.ri.cws.application.service.workorder.CloseWorkOrderService;
 import uo.ri.cws.application.service.workorder.ViewAssignedWorkOrdersService;
 import uo.ri.cws.application.service.workorder.WorkOrderCrudService;
@@ -29,8 +36,8 @@ public class BusinessFactory implements ServiceFactory {
 	}
 
 	@Override
-	public VehicleCrudService forVehicleCrudService() {
-		return new VehicleCrudServiceImpl();
+	public WorkOrderCrudService forWorkOrderService() {
+		throw new RuntimeException("Not yet implemented");
 	}
 
 	@Override
@@ -39,7 +46,43 @@ public class BusinessFactory implements ServiceFactory {
 	}
 
 	@Override
+	public VehicleCrudService forVehicleCrudService() {
+		return new VehicleCrudServiceImpl();
+	}
+
+	@Override
+	public CourseCrudService forCourseCrudService() {
+		// TODO falta implementar, no es mi ampliacion
+		throw new RuntimeException("Not yet implemented");
+	}
+
+	@Override
+	public CourseAttendanceService forCourseAttendanceService() {
+		return new CourseAttendanceServiceImpl();
+	}
+
+	@Override
+	public CourseReportService forCourseReportService() {
+		throw new RuntimeException("Not yet implemented");
+	}
+
+	@Override
+	public CertificateService forCertificateService() {
+		return new CertificateServiceImpl();
+	}
+
+	@Override
 	public VehicleTypeCrudService forVehicleTypeCrudService() {
+		throw new RuntimeException("Not yet implemented");
+	}
+
+	@Override
+	public AssignWorkOrderService forAssignWorkOrderService() {
+		throw new RuntimeException("Not yet implemented");
+	}
+
+	@Override
+	public ClientCrudService forClientCrudService() {
 		throw new RuntimeException("Not yet implemented");
 	}
 
@@ -54,17 +97,7 @@ public class BusinessFactory implements ServiceFactory {
 	}
 
 	@Override
-	public ClientCrudService forClienteCrudService() {
-		throw new RuntimeException("Not yet implemented");
-	}
-
-	@Override
 	public ClientHistoryService forClientHistoryService() {
-		throw new RuntimeException("Not yet implemented");
-	}
-
-	@Override
-	public WorkOrderCrudService forWorkOrderCrudService() {
 		throw new RuntimeException("Not yet implemented");
 	}
 

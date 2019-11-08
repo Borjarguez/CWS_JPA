@@ -13,8 +13,16 @@ public class VehicleType extends BaseEntity{
 	
 	@Column(unique=true) private String name;
 	private double pricePerHour;
+	private int minTrainingHours;
 	
-	@OneToMany(mappedBy="vehicleType") private Set<Vehicle> vehicles = new HashSet<Vehicle>();
+	@OneToMany(mappedBy="vehicleType")
+	private Set<Vehicle> vehicles = new HashSet<Vehicle>();
+	
+	@OneToMany(mappedBy="vehicleType")
+	private Set<Certificate> certificates = new HashSet<Certificate>();
+	
+	@OneToMany(mappedBy = "vehicleType")
+	private Set<Dedication> dedications = new HashSet<Dedication>();
 	
 	public VehicleType() {}
 
@@ -34,6 +42,14 @@ public class VehicleType extends BaseEntity{
 	
 	Set<Vehicle> _getVehicles() {
 		return vehicles;
+	}
+	
+	Set<Certificate> _getCertificates() {
+		return certificates;
+	}
+	
+	public Set<Certificate> getCertificates() {
+		return new HashSet<Certificate>(certificates);
 	}
 
 	public String getName() {
@@ -72,6 +88,21 @@ public class VehicleType extends BaseEntity{
 	@Override
 	public String toString() {
 		return "VehicleType [name=" + name + ", pricePerHour=" + pricePerHour + "]";
+	}
+	
+	///////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////// EXTENSION /////////////////////////////////////////////
+	
+	Set<Dedication> _getDedications(){
+		return dedications;
+	}
+	
+	public Set<Dedication> getDedications(){
+		return new HashSet<Dedication>(dedications);
+	}
+
+	public int getMinTrainingHours() {
+		return minTrainingHours;
 	}
 
 }
