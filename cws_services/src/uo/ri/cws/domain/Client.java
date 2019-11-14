@@ -27,7 +27,7 @@ public class Client extends BaseEntity {
 	private Set<PaymentMean> paymentMeans = new HashSet<PaymentMean>();
 
 	/**
-	 * Client's constructor
+	 * Mapper's constructor
 	 */
 	Client() {
 	}
@@ -131,7 +131,7 @@ public class Client extends BaseEntity {
 	/**
 	 * Method which returns the phone
 	 * 
-	 * @return
+	 * @return the phone
 	 */
 	public String getPhone() {
 		return phone;

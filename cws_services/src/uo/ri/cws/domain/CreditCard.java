@@ -9,21 +9,36 @@ import javax.persistence.Table;
 import alb.util.date.Dates;
 
 @Entity
-@Table(name="TCREDITCARDS")
+@Table(name = "TCREDITCARDS")
 public class CreditCard extends PaymentMean {
-	@Column(unique=true) private String number;
+	@Column(unique = true)
+	private String number;
 	private String type;
 	private Date validThru;
-	
-	public CreditCard() {
 
+	/**
+	 * Mapper's constructor
+	 */
+	CreditCard() {
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param number, the credit card number
+	 */
 	public CreditCard(String number) {
 		super();
 		this.number = number;
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param number,   the number
+	 * @param type,     the type
+	 * @param tomorrow, the date
+	 */
 	public CreditCard(String number, String type, Date tomorrow) {
 		this(number);
 		checkValidThru(tomorrow);
@@ -31,20 +46,40 @@ public class CreditCard extends PaymentMean {
 		this.validThru = new Date(tomorrow.getTime());
 	}
 
+	/**
+	 * Method which checks if the validity date is correct
+	 * 
+	 * @param validity, the date
+	 */
 	private void checkValidThru(Date validity) {
-		if(validity.getTime() < Dates.today().getTime()) {
+		if (validity.getTime() < Dates.today().getTime()) {
 			throw new IllegalStateException();
 		}
 	}
 
+	/**
+	 * Method which returns the number
+	 * 
+	 * @return the number
+	 */
 	public String getNumber() {
 		return number;
 	}
 
+	/**
+	 * Method which returns the type
+	 * 
+	 * @return the type
+	 */
 	public String getType() {
 		return type;
 	}
 
+	/**
+	 * Method which returns the validity date
+	 * 
+	 * @return the validity date
+	 */
 	public Date getValidThru() {
 		return validThru;
 	}
@@ -78,7 +113,5 @@ public class CreditCard extends PaymentMean {
 	public String toString() {
 		return "CreditCard [number=" + number + ", type=" + type + ", validThru=" + validThru + "]";
 	}
-	
-	
 
 }

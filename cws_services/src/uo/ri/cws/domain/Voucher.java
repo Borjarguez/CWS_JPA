@@ -5,45 +5,84 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TVOUCHERS")
+@Table(name = "TVOUCHERS")
 public class Voucher extends PaymentMean {
-	@Column(unique = true) private String code;
+	@Column(unique = true)
+	private String code;
 	private double available;
 	private String description;
 
 	/**
-	 * Augments the accumulated and decrements the available 
+	 * Augments the accumulated and decrements the available
+	 * 
 	 * @throws IllegalStateException if not enough available to pay
 	 */
 	@Override
 	public void pay(double amount) {
 		this.available -= amount;
 	}
-	
-	Voucher(){}
 
+	/**
+	 * Mapper's constructor
+	 */
+	Voucher() {
+	}
+
+	/**
+	 * Public constructor
+	 * 
+	 * @param code, the code
+	 */
 	public Voucher(String code) {
 		this.code = code;
 	}
-	
+
+	/**
+	 * Public constructor
+	 * 
+	 * @param code,      the code
+	 * @param available, the available
+	 */
 	public Voucher(String code, double available) {
 		this(code);
 		this.available = available;
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param code,        the code
+	 * @param available,   the available
+	 * @param description, the description
+	 */
 	public Voucher(String code, double available, String description) {
 		this(code, available);
 		this.description = description;
-	}	
+	}
 
+	/**
+	 * Method which returns the code
+	 * 
+	 * @return the code
+	 */
 	public String getCode() {
 		return code;
 	}
 
+	/**
+	 * Method which returns the available
+	 * 
+	 * @return the available
+	 */
 	public double getDisponible() {
 		return available;
 	}
 
+	/**
+	 * Method which returns the description
+	 * 
+	 * @return the description
+	 */
 	public String getDescription() {
 		return description;
 	}
@@ -78,14 +117,27 @@ public class Voucher extends PaymentMean {
 		return "Voucher [code=" + code + ", available=" + available + ", description=" + description + "]";
 	}
 
+	/**
+	 * Method which sets the available
+	 * 
+	 * @param available, the new available
+	 */
 	public void setAvailable(double available) {
 		this.available = available;
 	}
 
+	/**
+	 * Method which sets the description
+	 * 
+	 * @param description, the new description
+	 */
 	public void setDescripcion(String description) {
 		this.description = description;
 	}
-	
+
+	/**
+	 * Method which changes the available
+	 */
 	public void changeAvailable() {
 		this.available = available - getAccumulated();
 	}

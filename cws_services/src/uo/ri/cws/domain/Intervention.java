@@ -11,67 +11,120 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="TINTERVENTIONS", uniqueConstraints = {
-		@UniqueConstraint(columnNames={
-			"WORKORDER_ID", "MECHANIC_ID", "DATE"
-		})
-})
-public class Intervention extends BaseEntity{
-	@ManyToOne private WorkOrder workOrder;
-	@ManyToOne private Mechanic mechanic;
+@Table(name = "TINTERVENTIONS", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "WORKORDER_ID", "MECHANIC_ID", "DATE" }) })
+public class Intervention extends BaseEntity {
+	@ManyToOne
+	private WorkOrder workOrder;
+	@ManyToOne
+	private Mechanic mechanic;
 
 	private Date date;
 	private int minutes;
-	
-	@OneToMany(mappedBy="intervention") private Set<Substitution> substitutions = new HashSet<Substitution>();
-	
-	public Intervention() {
-		
+
+	@OneToMany(mappedBy = "intervention")
+	private Set<Substitution> substitutions = new HashSet<Substitution>();
+
+	/**
+	 * Mapper's constructor
+	 */
+	Intervention() {
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param workOrder, the work order
+	 * @param mechanic,  the mechanic
+	 */
 	public Intervention(WorkOrder workOrder, Mechanic mechanic) {
 		this.date = new Date();
 		Associations.Intervene.link(workOrder, this, mechanic);
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param mechanic,  the mechanic
+	 * @param workOrder, the work order
+	 * @param minutes,   the minutes
+	 */
 	public Intervention(Mechanic mechanic, WorkOrder workOrder, int minutes) {
 		this(workOrder, mechanic);
 		this.minutes = minutes;
 	}
 
+	/**
+	 * Method which returns the work order
+	 * 
+	 * @return the work order
+	 */
 	public WorkOrder getWorkOrder() {
 		return workOrder;
 	}
 
+	/**
+	 * Method which returns the mechanic
+	 * 
+	 * @return the mechanic
+	 */
 	public Mechanic getMechanic() {
 		return mechanic;
 	}
 
+	/**
+	 * Method which returns the date
+	 * 
+	 * @return safe return of the date
+	 */
 	public Date getDate() {
-		return date;
+		return new Date(date.getTime());
 	}
 
+	/**
+	 * Method which returns the minutes
+	 * 
+	 * @return the minutes
+	 */
 	public int getMinutes() {
 		return minutes;
 	}
 
+	/**
+	 * Method which sets the work order
+	 * 
+	 * @param workOrder, the new work order
+	 */
 	void _setWorkOrder(WorkOrder workOrder) {
 		this.workOrder = workOrder;
 	}
 
+	/**
+	 * Method which sets the mechanic
+	 * 
+	 * @param mechanic, the new mechanic
+	 */
 	void _setMechanic(Mechanic mechanic) {
 		this.mechanic = mechanic;
 	}
-	
 
+	/**
+	 * Method which returns the substitutions
+	 * 
+	 * @return the substitutions
+	 */
 	Set<Substitution> _getSustitutions() {
 		return substitutions;
 	}
-	
+
+	/**
+	 * Method which returns the substitutions
+	 * 
+	 * @return safe return of the substitutions
+	 */
 	public Set<Substitution> getSustitutions() {
 		return new HashSet<Substitution>(substitutions);
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -115,15 +168,20 @@ public class Intervention extends BaseEntity{
 		return "Intervention [workOrder=" + workOrder + ", mechanic=" + mechanic + ", date=" + date + ", minutes="
 				+ minutes + "]";
 	}
-	
+
+	/**
+	 * Method which calculates the amount
+	 * 
+	 * @return the amount
+	 */
 	public double getAmount() {
 		double amount = 0L;
-		
-		for(Substitution sustitucion : substitutions)
+
+		for (Substitution sustitucion : substitutions)
 			amount += sustitucion.getImporte();
-		
-		amount += ((double)workOrder.getVehicle().getVehicleType().getPricePerHour())* ((double)minutes/60L);
-		
+
+		amount += ((double) workOrder.getVehicle().getVehicleType().getPricePerHour()) * ((double) minutes / 60L);
+
 		return amount;
 	}
 

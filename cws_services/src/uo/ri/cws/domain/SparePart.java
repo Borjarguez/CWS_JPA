@@ -9,45 +9,86 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TSPAREPARTS")
-public class SparePart extends BaseEntity{
-	@Column(unique = true) private String code;
+@Table(name = "TSPAREPARTS")
+public class SparePart extends BaseEntity {
+	@Column(unique = true)
+	private String code;
 	private String description;
 	private double price;
 
-	@OneToMany(mappedBy="sparePart")
+	@OneToMany(mappedBy = "sparePart")
 	protected Set<Substitution> substitutions = new HashSet<Substitution>();
 
+	/**
+	 * Mapper's constructor
+	 */
 	SparePart() {
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param code, the code
+	 */
 	public SparePart(String code) {
 		super();
 		this.code = code;
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param code,        the code
+	 * @param description, the description
+	 * @param price,       the price
+	 */
 	public SparePart(String code, String description, double price) {
 		this(code);
 		this.description = description;
 		this.price = price;
 	}
 
+	/**
+	 * Method which returns the code
+	 * 
+	 * @return the code
+	 */
 	public String getCode() {
 		return code;
 	}
 
+	/**
+	 * Method which returns the description
+	 * 
+	 * @return the description
+	 */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * Method which returns the price
+	 * 
+	 * @return the price
+	 */
 	public double getPrice() {
 		return price;
 	}
 
+	/**
+	 * Method which returns the substitutions
+	 * 
+	 * @return the substitutions
+	 */
 	Set<Substitution> _getSustituciones() {
 		return substitutions;
 	}
 
+	/**
+	 * Method which returns the substitutions
+	 * 
+	 * @return safe return of the substitutions
+	 */
 	public Set<Substitution> getSustituciones() {
 		return new HashSet<Substitution>(substitutions);
 	}

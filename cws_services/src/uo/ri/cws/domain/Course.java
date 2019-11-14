@@ -34,16 +34,34 @@ public class Course extends BaseEntity {
 	@OneToMany(mappedBy = "course")
 	private Set<Enrollment> enrollments = new HashSet<Enrollment>();
 
-	@OneToMany(mappedBy = "course", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 	private Set<Dedication> dedications = new HashSet<Dedication>();
 
+	/**
+	 * Mapper's constructor
+	 */
 	Course() {
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param code, the course's code
+	 */
 	public Course(String code) {
 		this.code = code;
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param code,        the course's code
+	 * @param name,        the course's name
+	 * @param description, the course's description
+	 * @param startDate,   the course's start date
+	 * @param endDate,     the course's end date
+	 * @param hours,       the course's hours
+	 */
 	public Course(String code, String name, String description, Date startDate, Date endDate, int hours) {
 		this(code);
 		checkString(code, "code");
@@ -51,7 +69,7 @@ public class Course extends BaseEntity {
 		checkString(description, "description");
 		checkDate(startDate, endDate);
 		checkInt(hours);
-		
+
 		this.name = name;
 		this.description = description;
 		this.startDate = new Date(startDate.getTime());
@@ -59,26 +77,56 @@ public class Course extends BaseEntity {
 		this.hours = hours;
 	}
 
+	/**
+	 * Method which returns the code
+	 * 
+	 * @return the code
+	 */
 	public String getCode() {
 		return code;
 	}
 
+	/**
+	 * Method which returns the name
+	 * 
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Method which returns the description
+	 * 
+	 * @return the description
+	 */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * Method which returns the start date
+	 * 
+	 * @return safe return of the start date
+	 */
 	public Date getStartDate() {
 		return new Date(startDate.getTime());
 	}
 
+	/**
+	 * Method which return the end date
+	 * 
+	 * @return safe return of the end date
+	 */
 	public Date getEndDate() {
 		return new Date(endDate.getTime());
 	}
 
+	/**
+	 * Method which returns the hours
+	 * 
+	 * @return the hours
+	 */
 	public int getHours() {
 		return hours;
 	}
@@ -118,18 +166,38 @@ public class Course extends BaseEntity {
 	/////////////////////////////// EXTENSION
 	/////////////////////////////////////////////////////////////////////////////////////// /////////////////////////////////////////////
 
+	/**
+	 * Method which returns the enrollments
+	 * 
+	 * @return the enrollments
+	 */
 	Set<Enrollment> _getEnrollments() {
 		return enrollments;
 	}
 
+	/**
+	 * Method which returns the enrollments
+	 * 
+	 * @return safe return of the enrollments
+	 */
 	public Set<Enrollment> getEnrollments() {
 		return new HashSet<Enrollment>(enrollments);
 	}
 
+	/**
+	 * Method which returns the dedications
+	 * 
+	 * @return the dedications
+	 */
 	Set<Dedication> _getDedications() {
 		return dedications;
 	}
 
+	/**
+	 * Method which returns the dedications
+	 * 
+	 * @return safe return of the dedications
+	 */
 	public Set<Dedication> getDedications() {
 		return new HashSet<Dedication>(dedications);
 	}
@@ -137,11 +205,11 @@ public class Course extends BaseEntity {
 	/**
 	 * Method which adds the different dedications to the list
 	 * 
-	 * @param percentages
+	 * @param percentages, the percentages
 	 */
 	public void addDedications(Map<VehicleType, Integer> percentages) {
 		int percentage = 0;
-		
+
 		if (getDedications().size() > 0)
 			throw new IllegalStateException("Dedications already existed");
 
@@ -158,6 +226,9 @@ public class Course extends BaseEntity {
 
 	}
 
+	/**
+	 * Method which clears the course's dedications
+	 */
 	public void clearDedications() {
 		for (Dedication d : getDedications()) {
 			Associations.Dedicate.unlink(d);
@@ -168,6 +239,11 @@ public class Course extends BaseEntity {
 	////////////////////////////////////////////////////
 	///// Security checks //////////////////////////////
 
+	/**
+	 * Method which checks if the integer values are correct
+	 * 
+	 * @param num
+	 */
 	private void checkInt(int num) {
 		if (num == 0)
 			throw new IllegalArgumentException("Duration can not be zero");
@@ -176,6 +252,12 @@ public class Course extends BaseEntity {
 			throw new IllegalArgumentException("Duration can not be negative");
 	}
 
+	/**
+	 * Method which checks if dates are correct
+	 * 
+	 * @param startDate, the start date
+	 * @param endDate,   the end date
+	 */
 	private void checkDate(Date startDate, Date endDate) {
 		if (startDate == null || endDate == null)
 			throw new IllegalArgumentException("Date can not be null");
@@ -191,23 +273,49 @@ public class Course extends BaseEntity {
 				throw new IllegalArgumentException("Dates can not be equal to each other");
 	}
 
+	/**
+	 * Method which checks if a string is correct
+	 * 
+	 * @param value, the string value
+	 * @param name,  the name of the parameter
+	 */
 	private void checkString(String value, String name) {
 		if (value.equals(""))
 			throw new IllegalArgumentException(name + " must not be empty");
 	}
 
+	/**
+	 * Method which sets the value of the property name
+	 * 
+	 * @param name, the name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Method which sets the value of the property description
+	 * 
+	 * @param description, the description
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	/**
+	 * Method which sets the value of the property start date
+	 * 
+	 * @param startDate, the start date
+	 */
 	public void setStartDate(Date startDate) {
 		this.startDate = new Date(startDate.getTime());
 	}
-	
+
+	/**
+	 * Method which sets the value of the property end date
+	 * 
+	 * @param endDate, the end date
+	 */
 	public void setEndDate(Date endDate) {
 		this.endDate = new Date(endDate.getTime());
 	}

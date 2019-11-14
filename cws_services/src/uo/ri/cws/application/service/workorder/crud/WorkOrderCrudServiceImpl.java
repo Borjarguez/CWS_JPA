@@ -39,13 +39,11 @@ public class WorkOrderCrudServiceImpl implements WorkOrderCrudService {
 
 	@Override
 	public List<WorkOrderDto> findWorkOrdersByVehicleId(String id) throws BusinessException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<WorkOrderDto> findWorkOrdersByPlateNumber(String plate) throws BusinessException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

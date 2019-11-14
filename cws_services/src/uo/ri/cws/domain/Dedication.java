@@ -18,34 +18,75 @@ public class Dedication extends BaseEntity {
 
 	private int percentage;
 
+	/**
+	 * Mapper's constructor
+	 */
 	Dedication() {
 	}
 
+	/**
+	 * Protected constructor
+	 * 
+	 * @param course,      the course
+	 * @param vehicleType, the vehicle type
+	 */
 	Dedication(Course course, VehicleType vehicleType) {
 		Associations.Dedicate.link(course, this, vehicleType);
 	}
 
+	/**
+	 * Protected constructor
+	 * 
+	 * @param vehicleType, the vehicle type
+	 * @param course,      the course
+	 * @param percentage,  the percentage
+	 */
 	Dedication(VehicleType vehicleType, Course course, Integer percentage) {
 		this(course, vehicleType);
 		this.percentage = percentage;
 	}
 
+	/**
+	 * Method which sets the course
+	 * 
+	 * @param course, the new course
+	 */
 	void _setCourse(Course course) {
 		this.course = course;
 	}
 
+	/**
+	 * Method which sets the vehicle type
+	 * 
+	 * @param vehicleType, the vehicle type
+	 */
 	void _setVehicleType(VehicleType vehicleType) {
 		this.vehicleType = vehicleType;
 	}
 
+	/**
+	 * Method which returns the course
+	 * 
+	 * @return the course
+	 */
 	public Course getCourse() {
 		return course;
 	}
 
+	/**
+	 * Method which returns the vehicle type
+	 * 
+	 * @return the vehicle type
+	 */
 	public VehicleType getVehicleType() {
 		return vehicleType;
 	}
 
+	/**
+	 * Method which returns the percentage
+	 * 
+	 * @return the percentage
+	 */
 	public int getPercentage() {
 		return percentage;
 	}

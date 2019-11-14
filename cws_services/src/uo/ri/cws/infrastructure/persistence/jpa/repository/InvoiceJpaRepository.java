@@ -12,13 +12,11 @@ public class InvoiceJpaRepository
 
 	@Override
 	public Optional<Invoice> findByNumber(Long numero) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Long getNextInvoiceNumber() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

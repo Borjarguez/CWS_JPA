@@ -7,55 +7,102 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 @Entity
-@Table(name="TVEHICLETYPES")
-public class VehicleType extends BaseEntity{
-	
-	@Column(unique=true) private String name;
+@Table(name = "TVEHICLETYPES")
+public class VehicleType extends BaseEntity {
+
+	@Column(unique = true)
+	private String name;
 	private double pricePerHour;
 	private int minTrainingHours;
-	
-	@OneToMany(mappedBy="vehicleType")
+
+	@OneToMany(mappedBy = "vehicleType")
 	private Set<Vehicle> vehicles = new HashSet<Vehicle>();
-	
-	@OneToMany(mappedBy="vehicleType")
+
+	@OneToMany(mappedBy = "vehicleType")
 	private Set<Certificate> certificates = new HashSet<Certificate>();
-	
+
 	@OneToMany(mappedBy = "vehicleType")
 	private Set<Dedication> dedications = new HashSet<Dedication>();
-	
-	public VehicleType() {}
 
+	/**
+	 * Mapper's constructor
+	 */
+	public VehicleType() {
+	}
+
+	/**
+	 * Public constructor
+	 * 
+	 * @param name, the name
+	 */
 	public VehicleType(String name) {
 		super();
 		this.name = name;
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param name,         the name
+	 * @param pricePerHour, the price per hour
+	 */
 	public VehicleType(String name, double pricePerHour) {
 		this(name);
 		this.pricePerHour = pricePerHour;
 	}
 
+	/**
+	 * Method which returns the vehicles
+	 * 
+	 * @return safe return of the vehicles
+	 */
 	public Set<Vehicle> getVehicles() {
 		return new HashSet<Vehicle>(vehicles);
 	}
-	
+
+	/**
+	 * Method which returns the vehicles
+	 * 
+	 * @return the vehicles
+	 */
 	Set<Vehicle> _getVehicles() {
 		return vehicles;
 	}
-	
+
+	/**
+	 * Method which returns the certificates
+	 * 
+	 * @return the certificates
+	 */
 	Set<Certificate> _getCertificates() {
 		return certificates;
 	}
-	
+
+	/**
+	 * Method which returns the certificates
+	 * 
+	 * @return safe return of the certificates
+	 */
 	public Set<Certificate> getCertificates() {
 		return new HashSet<Certificate>(certificates);
 	}
 
+	/**
+	 * Method which returns the name
+	 * 
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Method which returns the price per hour
+	 * 
+	 * @return the price per hour
+	 */
 	public double getPricePerHour() {
 		return pricePerHour;
 	}
@@ -89,18 +136,34 @@ public class VehicleType extends BaseEntity{
 	public String toString() {
 		return "VehicleType [name=" + name + ", pricePerHour=" + pricePerHour + "]";
 	}
-	
+
 	///////////////////////////////////////////////////////////////////////////////////////
-	/////////////////////////////// EXTENSION /////////////////////////////////////////////
-	
-	Set<Dedication> _getDedications(){
+	/////////////////////////////// EXTENSION
+	///////////////////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Method which returns the dedications
+	 * 
+	 * @return the dedications
+	 */
+	Set<Dedication> _getDedications() {
 		return dedications;
 	}
-	
-	public Set<Dedication> getDedications(){
+
+	/**
+	 * Method which returns the dedications
+	 * 
+	 * @return safe return of the dedications
+	 */
+	public Set<Dedication> getDedications() {
 		return new HashSet<Dedication>(dedications);
 	}
 
+	/**
+	 * Method which returns the training hours
+	 * 
+	 * @return the training hours
+	 */
 	public int getMinTrainingHours() {
 		return minTrainingHours;
 	}

@@ -23,8 +23,7 @@ public class UpdateMechanic implements Command<Void>{
 		
 		BusinessCheck.isTrue(om.isPresent(), "Mechanic does not exist");
 		Mechanic m = om.get();
-		
-		//TODO para sesiones simultaneas de actualizacion, REVISAR, POSIBLE USO
+	
 		BusinessCheck.hasVersion(m, dto.version);
 		
 		m.setName(dto.name);

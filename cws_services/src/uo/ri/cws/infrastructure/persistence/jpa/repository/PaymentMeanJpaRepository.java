@@ -12,7 +12,6 @@ public class PaymentMeanJpaRepository
 
 	@Override
 	public List<PaymentMean> findPaymentMeansByClientId(Long id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

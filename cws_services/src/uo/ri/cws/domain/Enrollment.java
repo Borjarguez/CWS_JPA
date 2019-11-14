@@ -18,60 +18,108 @@ public class Enrollment extends BaseEntity {
 	private int attendance;
 	private boolean passed;
 
+	/**
+	 * Mapper's constructor
+	 */
 	Enrollment() {
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param mechanic, the mechanic
+	 * @param course,   the course
+	 */
 	public Enrollment(Mechanic mechanic, Course course) {
 		Associations.Enroll.link(mechanic, this, course);
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param mechanic,   the mechanic
+	 * @param course,     the course
+	 * @param attendance, the attendance
+	 * @param passed,     the passed value
+	 */
 	public Enrollment(Mechanic mechanic, Course course, int attendance, boolean passed) {
 		this(mechanic, course);
-		
-		if(passed && attendance < 85)
+
+		if (passed && attendance < 85)
 			throw new IllegalArgumentException("To pass attendance must be over 85 percent");
-		
+
 		this.attendance = attendance;
 		this.passed = passed;
 	}
-	
+
+	/**
+	 * Method which sets the new mechanic
+	 * 
+	 * @param mechanic the new mechanic
+	 */
 	void _setMechanic(Mechanic mechanic) {
 		this.mechanic = mechanic;
 	}
 
+	/**
+	 * Method which sets the course value
+	 * 
+	 * @param course, the new course
+	 */
 	void _setCourse(Course course) {
 		this.course = course;
 	}
 
+	/**
+	 * Method which returns the mechanic
+	 * 
+	 * @return the mechanic
+	 */
 	public Mechanic getMechanic() {
 		return mechanic;
 	}
 
+	/**
+	 * Method which returns the course
+	 * 
+	 * @return the course
+	 */
 	public Course getCourse() {
 		return course;
 	}
 
+	/**
+	 * Method which returns the attendance
+	 * 
+	 * @return the attendance
+	 */
 	public int getAttendance() {
 		return attendance;
 	}
 
+	/**
+	 * Method which returns the passed value
+	 * 
+	 * @return the passed value
+	 */
 	public boolean isPassed() {
 		return passed;
 	}
 
 	/**
-	 * Method which calculates 
-	 * @param car
-	 * @return
+	 * Method which calculates the attended hours
+	 * 
+	 * @param car, the vehicle type
+	 * @return the attended hours
 	 */
 	public int getAttendedHoursFor(VehicleType car) {
 		int hours = 0;
-		
-		for(Dedication d : course.getDedications()) {
-			if(d.getVehicleType().equals(car))
-				hours += d.getPercentage()*course.getHours()*0.01*attendance*0.01;
+
+		for (Dedication d : course.getDedications()) {
+			if (d.getVehicleType().equals(car))
+				hours += d.getPercentage() * course.getHours() * 0.01 * attendance * 0.01;
 		}
-		
+
 		return hours;
 	}
 

@@ -12,82 +12,155 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "TVEHICLES")
 public class Vehicle extends BaseEntity {
-	
+
 	@Column(unique = true)
 	private String plateNumber;
-	
-//	@Column(name = "brand")
+
 	private String make;
-	
 	private String model;
 
 	@ManyToOne
 	private Client client;
-	
-	@ManyToOne 
+
+	@ManyToOne
 	private VehicleType vehicleType;
 
 	@OneToMany(mappedBy = "vehicle")
 	private Set<WorkOrder> workOrders = new HashSet<WorkOrder>();
 
+	/**
+	 * Mapper's constructor
+	 */
 	Vehicle() {
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param plateNumber, the plate number
+	 */
 	public Vehicle(String plateNumber) {
 		super();
 		this.plateNumber = plateNumber;
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param plate, the plate
+	 * @param make,  the make
+	 * @param model, the model
+	 */
 	public Vehicle(String plate, String make, String model) {
 		this(plate);
 		this.make = make;
 		this.model = model;
 	}
 
+	/**
+	 * Method which returns the client
+	 * 
+	 * @return the client
+	 */
 	public Client getClient() {
 		return client;
 	}
 
+	/**
+	 * Method which sets the client
+	 * 
+	 * @param client, the new client
+	 */
 	void _setClient(Client client) {
 		this.client = client;
 	}
 
+	/**
+	 * Method which returns the vehicle type
+	 * 
+	 * @return the vehicle type
+	 */
 	public VehicleType getVehicleType() {
 		return vehicleType;
 	}
 
+	/**
+	 * Method which set the type of vehicle
+	 * 
+	 * @param type, the vehicle type
+	 */
 	void _setType(VehicleType type) {
 		this.vehicleType = type;
 	}
 
+	/**
+	 * Method which sets the plate number
+	 * 
+	 * @param plateNumber, the new plate number
+	 */
 	public void setPlateNumber(String plateNumber) {
 		this.plateNumber = plateNumber;
 	}
 
+	/**
+	 * Method which sets the make
+	 * 
+	 * @param make, the new make
+	 */
 	public void setMake(String make) {
 		this.make = make;
 	}
 
+	/**
+	 * Method which sets the model
+	 * 
+	 * @param model, the new model
+	 */
 	public void setModel(String model) {
 		this.model = model;
 	}
 
+	/**
+	 * Method which returns the plate number
+	 * 
+	 * @return the plate number
+	 */
 	public String getPlateNumber() {
 		return plateNumber;
 	}
 
+	/**
+	 * Method which returns the make
+	 * 
+	 * @return the make
+	 */
 	public String getMake() {
 		return make;
 	}
 
+	/**
+	 * Method which returns the model
+	 * 
+	 * @return the model
+	 */
 	public String getModel() {
 		return model;
 	}
 
+	/**
+	 * Method which returns the work orders
+	 * 
+	 * @return safe return of the work orders
+	 */
 	public Set<WorkOrder> getWorkOrders() {
 		return new HashSet<WorkOrder>(workOrders);
 	}
 
+	/**
+	 * Method which returns the work orders
+	 * 
+	 * @return the work orders
+	 */
 	Set<WorkOrder> _getWorkOrders() {
 		return workOrders;
 	}

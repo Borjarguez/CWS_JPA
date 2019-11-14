@@ -31,52 +31,112 @@ public class Mechanic extends BaseEntity {
 	@OneToMany(mappedBy = "mechanic")
 	private Set<Enrollment> enrollments = new HashSet<Enrollment>();
 
+	/**
+	 * Mapper's constructor
+	 */
 	Mechanic() {
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param dni, the dni
+	 */
 	public Mechanic(String dni) {
 		super();
 		this.dni = dni;
 	}
 
+	/**
+	 * Public constructor
+	 * 
+	 * @param dni,     the dni
+	 * @param name,    the name
+	 * @param surname, the surname
+	 */
 	public Mechanic(String dni, String name, String surname) {
 		this(dni);
 		this.name = name;
 		this.surname = surname;
 	}
 
+	/**
+	 * Method which returns the dni
+	 * 
+	 * @return the dni
+	 */
 	public String getDni() {
 		return dni;
 	}
 
+	/**
+	 * Method which returns the surname
+	 * 
+	 * @return the surname
+	 */
 	public String getSurname() {
 		return surname;
 	}
 
+	/**
+	 * Method which returns the name
+	 * 
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Method which returns the work orders
+	 * 
+	 * @return the work orders
+	 */
 	Set<WorkOrder> _getAssigned() {
 		return workOrders;
 	}
 
+	/**
+	 * Method which returns the work orders
+	 * 
+	 * @return safe return of the work orders
+	 */
 	public Set<WorkOrder> getAssigned() {
 		return new HashSet<WorkOrder>(workOrders);
 	}
 
+	/**
+	 * MEthod which returns the work orders
+	 * 
+	 * @return the work orders
+	 */
 	Set<Intervention> _getInterventions() {
 		return interventions;
 	}
 
+	/**
+	 * Method which returns the interventions
+	 * 
+	 * @return safe return of the interventions
+	 */
 	public Set<Intervention> getInterventions() {
 		return new HashSet<Intervention>(interventions);
 	}
 
+	/**
+	 * Method which sets the surname value
+	 * 
+	 * @param surname, the new surname
+	 */
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
+	/**
+	 * Method which sets the name
+	 * 
+	 * @param name, the new name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
