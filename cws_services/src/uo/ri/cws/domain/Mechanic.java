@@ -111,7 +111,6 @@ public class Mechanic extends BaseEntity {
 		return "Mechanic [dni=" + dni + ", surname=" + surname + ", name=" + name + "]";
 	}
 
-	///////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////// EXTENSION //////////////////////////
 
 	Set<Certificate> _getCertificates() {

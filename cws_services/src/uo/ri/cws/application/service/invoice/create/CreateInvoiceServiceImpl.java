@@ -15,16 +15,13 @@ public class CreateInvoiceServiceImpl implements CreateInvoiceService {
 	private CommandExecutor executor = Factory.executor.forExecutor();
 
 	@Override
-	public InvoiceDto createInvoiceFor(List<String> woIds)
-			throws BusinessException {
+	public InvoiceDto createInvoiceFor(List<String> woIds) throws BusinessException {
 
-		return executor.execute( new CreateInvoiceFor( woIds) );
+		return executor.execute(new CreateInvoiceFor(woIds));
 	}
 
 	@Override
-	public List<WorkOrderDto> findWorkOrdersByClientDni(String dni)
-			throws BusinessException {
-		// TODO Auto-generated method stub
+	public List<WorkOrderDto> findWorkOrdersByClientDni(String dni) throws BusinessException {
 		return null;
 	}
 

@@ -31,22 +31,47 @@ public class Certificate extends BaseEntity {
 		this.date = new Date();
 	}
 
+	/**
+	 * Method which returns the mechanic
+	 * 
+	 * @return the mechanic
+	 */
 	public Mechanic getMechanic() {
 		return mechanic;
 	}
 
+	/**
+	 * Method which returns the the vehicle type
+	 * 
+	 * @return the vehicle type
+	 */
 	public VehicleType getVehicleType() {
 		return vehicleType;
 	}
 
+	/**
+	 * Method which returns the certificate's date
+	 * 
+	 * @return safe return of the date
+	 */
 	public Date getDate() {
 		return new Date(date.getTime());
 	}
 
+	/**
+	 * Method which sets the mechanic
+	 * 
+	 * @param mechanic, the new mechanic
+	 */
 	void _setMechanic(Mechanic mechanic) {
 		this.mechanic = mechanic;
 	}
 
+	/**
+	 * Method which sets the vehicle type
+	 * 
+	 * @param vehicleType, the new vehicle type
+	 */
 	void _setVehicleType(VehicleType vehicleType) {
 		this.vehicleType = vehicleType;
 	}

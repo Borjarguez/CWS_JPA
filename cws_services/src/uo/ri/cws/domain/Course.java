@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -33,7 +34,7 @@ public class Course extends BaseEntity {
 	@OneToMany(mappedBy = "course")
 	private Set<Enrollment> enrollments = new HashSet<Enrollment>();
 
-	@OneToMany(mappedBy = "course")
+	@OneToMany(mappedBy = "course", cascade=CascadeType.ALL)
 	private Set<Dedication> dedications = new HashSet<Dedication>();
 
 	Course() {
@@ -193,5 +194,25 @@ public class Course extends BaseEntity {
 	private void checkString(String value, String name) {
 		if (value.equals(""))
 			throw new IllegalArgumentException(name + " must not be empty");
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = new Date(startDate.getTime());
+	}
+	
+	public void setEndDate(Date endDate) {
+		this.endDate = new Date(endDate.getTime());
+	}
+
+	public void setHours(int hours) {
+		this.hours = hours;
 	}
 }

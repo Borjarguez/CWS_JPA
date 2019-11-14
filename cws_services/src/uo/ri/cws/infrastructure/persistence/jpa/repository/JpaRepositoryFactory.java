@@ -1,5 +1,6 @@
 package uo.ri.cws.infrastructure.persistence.jpa.repository;
 
+import uo.ri.cws.application.repository.CertificateRepository;
 import uo.ri.cws.application.repository.ClientRepository;
 import uo.ri.cws.application.repository.CourseRepository;
 import uo.ri.cws.application.repository.DedicationRepository;
@@ -74,6 +75,11 @@ public class JpaRepositoryFactory implements RepositoryFactory {
 	@Override
 	public CourseRepository forCourse() {
 		return new CourseJpaRepository();
+	}
+
+	@Override
+	public CertificateRepository forCertificate() {
+		return new CertificateJpaRepository();
 	}
 
 }

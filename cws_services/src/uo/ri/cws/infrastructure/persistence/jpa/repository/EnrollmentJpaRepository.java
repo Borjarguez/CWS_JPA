@@ -1,6 +1,7 @@
 package uo.ri.cws.infrastructure.persistence.jpa.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import uo.ri.cws.application.repository.EnrollmentRepository;
 import uo.ri.cws.domain.Enrollment;
@@ -11,11 +12,20 @@ public class EnrollmentJpaRepository extends BaseJpaRepository<Enrollment> imple
 
 	@Override
 	public List<Enrollment> findByCourseId(String id) {
-		// TODO Query must be implemented
 		return Jpa.getManager()
 				.createNamedQuery("Enrollment.findByCourseId", Enrollment.class)
 				.setParameter(1, id)
 				.getResultList();
+	}
+
+	@Override
+	public Optional<Enrollment> findByMechanicIdCourseId(String mechanicId, String courseId) {
+		return Jpa.getManager()
+				.createNamedQuery("Enrollment.findByMechanicIdCourseId", Enrollment.class)
+				.setParameter(1, mechanicId)
+				.setParameter(2, courseId)
+				.getResultStream()
+				.findFirst();
 	}
 
 }

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<entity-mappings 
-	xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+<entity-mappings
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
-  	version="2.0">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+	version="2.0">
 
-	<!-- Vehicle queries --> 
+	<!-- Vehicle queries -->
 	<named-query name="Vehicle.findByPlate">
 		<query>select v from Vehicle v where v.plateNumber = ?1</query>
 	</named-query>
 
-	<!-- WorkOrder queries --> 
+	<!-- WorkOrder queries -->
 	<named-query name="WorkOrder.findByIds">
 		<query>select a from WorkOrder a where a.id in ?1</query>
 	</named-query>
@@ -18,20 +18,21 @@
 	<!-- PaymentMean queries -->
 	<named-query name="PaymentMean.findByInvoiceId">
 		<query>
-			select m 
-			from Invoice f 
-				join f.workOrders w 
-				join w.vehicle.client c 
-				join c.paymentMeans m 
+			select m
+			from Invoice f
+			join f.workOrders w
+			join w.vehicle.client
+			c
+			join c.paymentMeans m
 			where f.id = ?1
 		</query>
 	</named-query>
-	
+
 	<!-- Mechanic queries -->
 	<named-query name="Mechanic.findByDni">
 		<query>
-			select m 
-			from Mechanic m 
+			select m
+			from Mechanic m
 			where m.dni = ?1
 		</query>
 	</named-query>
@@ -40,26 +41,66 @@
 	<named-query name="Invoice.findByNumber">
 		<query>select f from Invoice f where f.number = ?1</query>
 	</named-query>
-	
+
 	<named-query name="Invoice.getNextInvoiceNumber">
 		<query>select max(f.number) + 1 from Invoice f</query>
 	</named-query>
-	
-<!-- 
-	Use this format if your query has 
-	numeric comparisons as the one in this example
-	
-	<named-query name="findItemsOnSaleByCategoryId">
-		<query>
-			<![CDATA[
-			select i 
-				from Item i join i.categories c
-				where c.id = ?2
-					and i.startDate <= ?1
-					and i.endDate >= ?1 
-			]]>
+
+	<!-- Enrollment queries -->
+	<named-query name="Enrollment.findByMechanicIdCourseId">
+		<query>select e from Enrollment e where e.mechanic.id=?1 and
+			e.course.id=?2
 		</query>
 	</named-query>
- -->		
+
+	<named-query name="Enrollment.findByCourseId">
+		<query>select e from Enrollment e where e.course.id =?1 order by
+			e.mechanic.surname
+		</query>
+	</named-query>
+
+	<!-- Certificate queries -->
+	<named-query name="Certificate.findTotalHours">
+		<query> select
+			coalesce(sum((c.hours*d.percentage*e.attendance)/10000),0) from
+			Enrollment e, Course c, Dedication d
+			where e.mechanic=?1 and d.vehicleType=?2 and e.passed=true and c=e.course and c=d.course
+		</query>
+	</named-query>
+
+	<named-query
+		name="Certificate.findCertificateByMechanicVehicleTypeIDs">
+		<query> select c from Certificate c where c.mechanic=?1 and c.vehicleType=?2 </query>
+	</named-query>
+
+	<named-query name="Certificate.findByVehicleTypeId">
+		<query> select c from Certificate c where c.vehicleType.id=?1</query>
+	</named-query>
+
+	<!-- Dedication queries -->
+	<named-query name="Dedication.findAttendance">
+		<query>select coalesce(sum((c.hours*d.percentage*e.attendance)/10000),0)
+			from Enrollment e, Course c, Dedication d
+			where e.mechanic=?1 and d.vehicleType=?2 and c=e.course and c=d.course
+		</query>
+	</named-query>
+
+	<named-query name="Dedication.findEnrolledHours">
+		<query>select coalesce(sum((c.hours*d.percentage)/100),0)
+			from Enrollment e, Course c, Dedication d
+			where e.mechanic=?1 and d.vehicleType=?2 and c=e.course and c=d.course
+		</query>
+	</named-query>
+
+	<!-- Course queries -->
+	<named-query name="Course.findByCode">
+		<query>select c from Course c where c.code=?1</query>
+	</named-query>
+	
+	
+	<!-- Use this format if your query has numeric comparisons as the one in 
+		this example <named-query name="findItemsOnSaleByCategoryId"> <query> <![CDATA[ 
+		select i from Item i join i.categories c where c.id = ?2 and i.startDate 
+		<= ?1 and i.endDate >= ?1 ]]> </query> </named-query> -->
 
 </entity-mappings>

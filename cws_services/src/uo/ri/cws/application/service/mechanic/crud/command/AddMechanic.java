@@ -8,7 +8,7 @@ import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Mechanic;
 
-public class AddMechanic implements Command<MechanicDto>{
+public class AddMechanic implements Command<MechanicDto> {
 	private MechanicRepository repo = Factory.repository.forMechanic();
 	private MechanicDto dto;
 
@@ -17,9 +17,9 @@ public class AddMechanic implements Command<MechanicDto>{
 	}
 
 	public MechanicDto execute() throws BusinessException {
-		Mechanic m = new Mechanic(dto.dni, dto.name,dto.surname);
-		
 		BusinessCheck.isNull(dto, "Dto is missing");
+		Mechanic m = new Mechanic(dto.dni, dto.name, dto.surname);
+
 		repo.add(m);
 
 		dto.id = m.getId();

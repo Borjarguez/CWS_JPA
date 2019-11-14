@@ -14,7 +14,9 @@ import uo.ri.cws.application.service.training.CourseAttendanceService;
 import uo.ri.cws.application.service.training.CourseCrudService;
 import uo.ri.cws.application.service.training.CourseReportService;
 import uo.ri.cws.application.service.training.crud.certificate.CertificateServiceImpl;
+import uo.ri.cws.application.service.training.crud.course.CourseCrudServiceImpl;
 import uo.ri.cws.application.service.training.crud.courseAttendance.CourseAttendanceServiceImpl;
+import uo.ri.cws.application.service.training.crud.courseReport.CourseReportServiceImpl;
 import uo.ri.cws.application.service.vehicle.VehicleCrudService;
 import uo.ri.cws.application.service.vehicle.crud.VehicleCrudServiceImpl;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeCrudService;
@@ -22,6 +24,8 @@ import uo.ri.cws.application.service.workorder.AssignWorkOrderService;
 import uo.ri.cws.application.service.workorder.CloseWorkOrderService;
 import uo.ri.cws.application.service.workorder.ViewAssignedWorkOrdersService;
 import uo.ri.cws.application.service.workorder.WorkOrderCrudService;
+import uo.ri.cws.application.service.workorder.crud.AssignWorkOrderServiceImpl;
+import uo.ri.cws.application.service.workorder.crud.WorkOrderCrudServiceImpl;
 
 public class BusinessFactory implements ServiceFactory {
 
@@ -37,7 +41,7 @@ public class BusinessFactory implements ServiceFactory {
 
 	@Override
 	public WorkOrderCrudService forWorkOrderService() {
-		throw new RuntimeException("Not yet implemented");
+		return new WorkOrderCrudServiceImpl();
 	}
 
 	@Override
@@ -52,8 +56,7 @@ public class BusinessFactory implements ServiceFactory {
 
 	@Override
 	public CourseCrudService forCourseCrudService() {
-		// TODO falta implementar, no es mi ampliacion
-		throw new RuntimeException("Not yet implemented");
+		return new CourseCrudServiceImpl();
 	}
 
 	@Override
@@ -63,7 +66,7 @@ public class BusinessFactory implements ServiceFactory {
 
 	@Override
 	public CourseReportService forCourseReportService() {
-		throw new RuntimeException("Not yet implemented");
+		return new CourseReportServiceImpl();
 	}
 
 	@Override
@@ -78,7 +81,7 @@ public class BusinessFactory implements ServiceFactory {
 
 	@Override
 	public AssignWorkOrderService forAssignWorkOrderService() {
-		throw new RuntimeException("Not yet implemented");
+		return new AssignWorkOrderServiceImpl();
 	}
 
 	@Override

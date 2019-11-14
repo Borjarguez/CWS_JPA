@@ -2,6 +2,11 @@ package uo.ri.cws.ui.foreman.reception;
 
 import alb.util.menu.BaseMenu;
 import alb.util.menu.NotYetImplementedAction;
+import uo.ri.cws.ui.foreman.reception.actions.AssignWorkOrderAction;
+import uo.ri.cws.ui.foreman.reception.actions.ListCertifiedMechanicsAction;
+import uo.ri.cws.ui.foreman.reception.actions.RegisterWorkOrderAction;
+import uo.ri.cws.ui.foreman.reception.actions.RemoveWorkOrderAction;
+import uo.ri.cws.ui.foreman.reception.actions.UpdateWorkOrderAction;
 
 public class ReceptionMenu extends BaseMenu {
 
@@ -9,15 +14,15 @@ public class ReceptionMenu extends BaseMenu {
 		menuOptions = new Object[][] { 
 			{"Foreman > Vehicle reception", null},
 			
-			{"Register work order", 	NotYetImplementedAction.class }, 
-			{"Update workorder", 		NotYetImplementedAction.class },
-			{"Remove workorder", 		NotYetImplementedAction.class },
+			{"Register work order", 	RegisterWorkOrderAction.class }, 
+			{"Update workorder", 		UpdateWorkOrderAction.class },
+			{"Remove workorder", 		RemoveWorkOrderAction.class },
 			{"", null},
 			{"List work orders", 		NotYetImplementedAction.class }, 
 			{"View work order detail", 	NotYetImplementedAction.class },
 			{"", null},
-			{"List certified mechanics",NotYetImplementedAction.class }, 
-			{"Assign a work order",  	NotYetImplementedAction.class },
+			{"List certified mechanics",ListCertifiedMechanicsAction.class }, 
+			{"Assign a work order",  	AssignWorkOrderAction.class },
 		};
 	}
 
